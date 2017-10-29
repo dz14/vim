@@ -34,10 +34,6 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'altercation/vim-colors-solarized'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -48,3 +44,37 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 "Theme for Vim
+syntax enable
+set background=dark
+colorscheme solarized
+
+" Key Mappings
+let mapleader = ','
+nmap <leader>ne :NERDTree<cr>
+
+" Line Numbers
+set number relativenumber
+" Use older regex engine to reduce lag when scrolling with relative line numbers 
+set regexpengine=1
+
+"Backspace Setting
+set backspace=indent,eol,start 
+
+" Indenting Configuration
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+set softtabstop=4
+
+"Line wrapping
+set wrap
+
+"Highlight Search
+set hlsearch
+
+"Macvim Font Configuration
+set guifont=Monaco:h14
