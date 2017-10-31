@@ -1,6 +1,17 @@
 "Initial setup of .vimrc
 set nocompatible              " be iMproved, required
 filetype off                  " required
+" Key Mappings
+let mapleader = ','
+nmap <leader>nt :NERDTree<cr>
+"Hit keys j-k to go back to Normal mode
+imap jk <Esc> 
+
+"Arrow keys to move panes
+nmap <silent> <Up> :wincmd k<CR>
+nmap <silent> <Down> :wincmd j<CR>
+nmap <silent> <Left> :wincmd h<CR>
+nmap <silent> <Right> :wincmd l<CR>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -19,8 +30,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
 "Indent lines
 Plugin 'Yggdroot/indentLine'
-"Linter
-"Plugin 'w0rp/ale'
 "Fuzzy Finder
 Plugin 'ctrlpvim/ctrlp.vim'
 "Commenter 
@@ -30,6 +39,9 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-fugitive'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'pangloss/vim-javascript'
 "Solarized Theme
 Plugin 'altercation/vim-colors-solarized'
 " All of your Plugins must be added before the following line
@@ -47,11 +59,8 @@ call vundle#end()            " required
 syntax enable
 set background=dark
 colorscheme solarized
-
-" Key Mappings
-let mapleader = ','
-nmap <leader>ne :NERDTree<cr>
-
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
 " Line Numbers
 set number relativenumber
 " Use older regex engine to reduce lag when scrolling with relative line numbers 
@@ -76,5 +85,11 @@ set wrap
 "Highlight Search
 set hlsearch
 
+"Javascript Syntax Highlighting for JSDocs
+let g:javascript_plugin_jsdoc = 1
+
 "Macvim Font Configuration
 set guifont=Monaco:h14
+
+" Mouse settings
+set mouse=nicr
