@@ -5,7 +5,7 @@ filetype off                  " required
 let mapleader = ','
 nmap <leader>nt :NERDTree<cr>
 "Hit keys j-k to go back to Normal mode
-imap jk <Esc> 
+inoremap jk <esc>
 
 "Arrow keys to move panes
 nmap <silent> <Up> :wincmd k<CR>
