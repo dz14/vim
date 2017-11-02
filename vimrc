@@ -89,7 +89,7 @@ set hlsearch
 let g:javascript_plugin_jsdoc = 1
 
 "Macvim Font Configuration
-set guifont=Monaco:h14
-
+set guifont=Meslo\ LG\ M\ for\ Powerline:h14
 " Mouse settings
-set mouse=nicr
+" set mouse=nicr
+set mouse=a
