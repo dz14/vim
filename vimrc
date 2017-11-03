@@ -42,6 +42,14 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-fugitive'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'pangloss/vim-javascript'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'roxma/vim-paste-easy'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'ervandew/supertab'
+"Snippet engine.
+Plugin 'SirVer/ultisnips'
+"Snippets are separated from the engine.
+Plugin 'honza/vim-snippets'
 "Solarized Theme
 Plugin 'altercation/vim-colors-solarized'
 " All of your Plugins must be added before the following line
@@ -82,8 +90,14 @@ set softtabstop=4
 "Line wrapping
 set wrap
 
-"Highlight Search
-set hlsearch
+"" Searching
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+
+"" Status line
+set showcmd                     " display incomplete commands
 
 "Javascript Syntax Highlighting for JSDocs
 let g:javascript_plugin_jsdoc = 1
@@ -93,3 +107,24 @@ set guifont=Meslo\ LG\ M\ for\ Powerline:h14
 " Mouse settings
 " set mouse=nicr
 set mouse=a
+
+" Close YCM Preview Pane when switching to Normal Mode
+let g:ycm_autoclose_preview_window_after_insertion = 0
+
+if !&scrolloff
+  set scrolloff=5
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<s-tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
