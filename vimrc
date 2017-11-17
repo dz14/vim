@@ -13,6 +13,8 @@ nmap <silent> <Down> :wincmd j<CR>
 nmap <silent> <Left> :wincmd h<CR>
 nmap <silent> <Right> :wincmd l<CR>
 
+nmap s <Plug>(easymotion-bd-w)
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -46,10 +48,15 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'roxma/vim-paste-easy'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'ervandew/supertab'
+" Syntax Highlighting Support for loads of languages
+Plugin 'sheerun/vim-polyglot'
+Plugin 'ap/vim-css-color'
+Plugin 'mxw/vim-jsx'
 "Snippet engine.
 Plugin 'SirVer/ultisnips'
 "Snippets are separated from the engine.
 Plugin 'honza/vim-snippets'
+Plugin 'epilande/vim-react-snippets'
 "Solarized Theme
 Plugin 'altercation/vim-colors-solarized'
 " All of your Plugins must be added before the following line
@@ -103,13 +110,14 @@ set showcmd                     " display incomplete commands
 let g:javascript_plugin_jsdoc = 1
 
 "Macvim Font Configuration
-set guifont=Meslo\ LG\ M\ for\ Powerline:h14
+"set guifont=Meslo\ LG\ M\ for\ Powerline:h14
+set guifont=MesloLGLDZ\ NF:h14
 " Mouse settings
 " set mouse=nicr
 set mouse=a
 
 " Close YCM Preview Pane when switching to Normal Mode
-let g:ycm_autoclose_preview_window_after_insertion = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 if !&scrolloff
   set scrolloff=5
@@ -118,6 +126,8 @@ if !&sidescrolloff
   set sidescrolloff=5
 endif
 set display+=lastline
+
+let g:jsx_ext_required = 0
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
