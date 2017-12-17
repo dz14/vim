@@ -8,15 +8,16 @@ nmap <leader>nt :NERDTree<cr>
 inoremap jk <esc>
 
 "Arrow keys to move panes
-nmap <silent> <Up> :wincmd k<CR>
-nmap <silent> <Down> :wincmd j<CR>
-nmap <silent> <Left> :wincmd h<CR>
-nmap <silent> <Right> :wincmd l<CR>
+"nmap <silent> <Up> :wincmd k<CR>
+"nmap <silent> <Down> :wincmd j<CR>
+"nmap <silent> <Left> :wincmd h<CR>
+"nmap <silent> <Right> :wincmd l<CR>
 
 nmap s <Plug>(easymotion-bd-w)
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/usr/local/opt/fzf
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -49,6 +50,9 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'roxma/vim-paste-easy'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'ervandew/supertab'
+" For FZP
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 " Syntax Highlighting Support for loads of languages
 Plugin 'sheerun/vim-polyglot'
 Plugin 'ap/vim-css-color'
