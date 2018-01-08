@@ -8,10 +8,10 @@ nmap <leader>nt :NERDTree<cr>
 inoremap jk <esc>
 
 "Arrow keys to move panes
-"nmap <silent> <Up> :wincmd k<CR>
-"nmap <silent> <Down> :wincmd j<CR>
-"nmap <silent> <Left> :wincmd h<CR>
-"nmap <silent> <Right> :wincmd l<CR>
+nmap <silent> <up> :wincmd k<cr>
+nmap <silent> <down> :wincmd j<cr>
+nmap <silent> <left> :wincmd h<cr>
+nmap <silent> <right> :wincmd l<cr>
 
 nmap s <Plug>(easymotion-bd-w)
 
