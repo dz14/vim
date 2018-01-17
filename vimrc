@@ -1,6 +1,8 @@
 "Initial setup of .vimrc
 set nocompatible              " be iMproved, required
 filetype off                  " required
+" Set Directory for storing swapfiles
+set directory^=$HOME/.vim/tmp//
 " Key Mappings
 let mapleader = ','
 nmap <leader>nt :NERDTree<cr>
@@ -12,6 +14,7 @@ nmap <silent> <up> :wincmd k<cr>
 nmap <silent> <down> :wincmd j<cr>
 nmap <silent> <left> :wincmd h<cr>
 nmap <silent> <right> :wincmd l<cr>
+nmap <silent> <c-t> :Files<cr>
 
 nmap s <Plug>(easymotion-bd-w)
 
@@ -92,12 +95,12 @@ set backspace=indent,eol,start
 " Indenting Configuration
 filetype plugin indent on
 " show existing tab with 4 spaces width
-set tabstop=4
+set tabstop=2
 " when indenting with '>', use 4 spaces width
-set shiftwidth=4
+set shiftwidth=2
 " On pressing tab, insert 4 spaces
 set expandtab
-set softtabstop=4
+set softtabstop=2
 
 "Line wrapping
 set wrap
