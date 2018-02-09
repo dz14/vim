@@ -31,7 +31,8 @@ Plugin 'VundleVim/Vundle.vim'
 "Code Completion plugin
 Plugin 'Valloric/YouCompleteMe'
 "Syntax Checking plugin
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 "Emmet
 Plugin 'mattn/emmet-vim'
 "Indent lines
@@ -67,6 +68,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'epilande/vim-react-snippets'
 "Solarized Theme
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'morhetz/gruvbox'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " Brief help
@@ -81,7 +83,8 @@ call vundle#end()            " required
 "Theme for Vim
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+colorscheme gruvbox
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 " Line Numbers
@@ -123,6 +126,26 @@ set guifont=MesloLGLDZ\ NF:h14
 " Mouse settings
 " set mouse=nicr
 set mouse=a
+
+" Syntastic Linting Preferences (currently prefering ALE)
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+""let g:syntastic_always_populate_loc_list = 1
+""let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_eslint_exe = 'npm run eslint --'
+
+"let g:syntastic_error_symbol = '❌'
+"let g:syntastic_style_error_symbol = '⁉️'
+"let g:syntastic_warning_symbol = '⚠️'
+"let g:syntastic_style_warning_symbol = '💩'
+"highlight link SyntasticErrorSign SignColumn
+"highlight link SyntasticWarningSign SignColumn
+"highlight link SyntasticStyleErrorSign SignColumn
+"highlight link SyntasticStyleWarningSign SignColumn
 
 " Close YCM Preview Pane when switching to Normal Mode
 let g:ycm_autoclose_preview_window_after_insertion = 1
