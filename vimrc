@@ -25,6 +25,8 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+let g:ale_javascript_eslint_use_global = 1
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -156,8 +158,8 @@ endif
 if !&sidescrolloff
   set sidescrolloff=5
 endif
-set display+=lastline
 
+set display+=lastline
 let g:jsx_ext_required = 0
 
 " make YCM compatible with UltiSnips (using supertab)
