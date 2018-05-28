@@ -56,6 +56,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'roxma/vim-paste-easy'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'ervandew/supertab'
+Plugin 'editorconfig/editorconfig-vim'
 " For FZP
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
