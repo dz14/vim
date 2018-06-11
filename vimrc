@@ -17,74 +17,58 @@ nmap <silent> <right> :wincmd l<cr>
 nmap <silent> <c-t> :Files<cr>
 
 nmap s <Plug>(easymotion-bd-w)
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/usr/local/opt/fzf
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
 let g:ale_javascript_eslint_use_global = 1
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
+call plug#begin('~/.vim/plugged')
+Plug 'VundleVim/Vundle.vim'
 "Code Completion plugin
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 "Syntax Checking plugin
-"Plugin 'scrooloose/syntastic'
-Plugin 'w0rp/ale'
+"Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 "Emmet
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 "Indent lines
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 "Fuzzy Finder
-Plugin 'ctrlpvim/ctrlp.vim'
-"Commenter 
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'tpope/vim-fugitive'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'pangloss/vim-javascript'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'roxma/vim-paste-easy'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'ervandew/supertab'
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+"Commenter
+Plug 'scrooloose/nerdcommenter'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-fugitive'
+Plug 'easymotion/vim-easymotion'
+Plug 'pangloss/vim-javascript'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'roxma/vim-paste-easy'
+Plug 'ryanoasis/vim-devicons'
+Plug 'ervandew/supertab'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-repeat'
 " For FZP
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 " Syntax Highlighting Support for loads of languages
-Plugin 'sheerun/vim-polyglot'
-Plugin 'ap/vim-css-color'
-Plugin 'mxw/vim-jsx'
+Plug 'sheerun/vim-polyglot'
+Plug 'ap/vim-css-color'
+Plug 'mxw/vim-jsx'
 "Snippet engine.
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 "Snippets are separated from the engine.
-Plugin 'honza/vim-snippets'
-Plugin 'epilande/vim-react-snippets'
+Plug 'honza/vim-snippets'
+Plug 'epilande/vim-react-snippets'
 "Solarized Theme
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'morhetz/gruvbox'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+call plug#end()
 
 "Theme for Vim
 syntax enable
+set cursorline
 set background=dark
 "colorscheme solarized
 colorscheme gruvbox
@@ -92,11 +76,11 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 " Line Numbers
 set number relativenumber
-" Use older regex engine to reduce lag when scrolling with relative line numbers 
+" Use older regex engine to reduce lag when scrolling with relative line numbers
 set regexpengine=1
 
 "Backspace Setting
-set backspace=indent,eol,start 
+set backspace=indent,eol,start
 
 " Indenting Configuration
 filetype plugin indent on
@@ -124,8 +108,8 @@ set showcmd                     " display incomplete commands
 let g:javascript_plugin_jsdoc = 1
 
 "Macvim Font Configuration
-"set guifont=Meslo\ LG\ M\ for\ Powerline:h14
-set guifont=MesloLGLDZ\ NF:h14
+set guifont=Meslo\ LG\ M\ Regular\ Nerd\ Font\ Complete\ Mono:h14
+"set guifont=MesloLGLDZ\ NF:h14
 " Mouse settings
 " set mouse=nicr
 set mouse=a
