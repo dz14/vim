@@ -5,6 +5,8 @@ filetype off                  " required
 set directory^=$HOME/.vim/tmp//
 " Key Mappings
 let mapleader = ','
+"Configure Silver Surfer
+let g:ackprg = 'ag --nogroup --nocolor --column'
 nmap <leader>nt :NERDTree<cr>
 "Hit keys j-k to go back to Normal mode
 inoremap jk <esc>
