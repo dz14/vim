@@ -8,6 +8,8 @@ let mapleader = ','
 "Configure Silver Surfer
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nmap <leader>nt :NERDTree<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gd :Gdiff<cr>
 "Hit keys j-k to go back to Normal mode
 inoremap jk <esc>
 
@@ -51,12 +53,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'ervandew/supertab'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rails'
 " For FZP
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Syntax Highlighting Support for loads of languages
-Plug 'sheerun/vim-polyglot'
-Plug 'ap/vim-css-color'
+"Plug 'sheerun/vim-polyglot'
+"Plug 'ap/vim-css-color'
 Plug 'mxw/vim-jsx'
 "Snippet engine.
 Plug 'SirVer/ultisnips'
@@ -64,7 +67,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'epilande/vim-react-snippets'
 "Solarized Theme
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
