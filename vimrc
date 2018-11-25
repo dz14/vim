@@ -34,8 +34,6 @@ Plug 'w0rp/ale'
 Plug 'mattn/emmet-vim'
 "Indent lines
 Plug 'Yggdroot/indentLine'
-"Fuzzy Finder
-Plug 'ctrlpvim/ctrlp.vim'
 "Commenter
 Plug 'scrooloose/nerdcommenter'
 Plug 'bling/vim-airline'
@@ -54,12 +52,13 @@ Plug 'ervandew/supertab'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-haml'
 " For FZP
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Syntax Highlighting Support for loads of languages
 "Plug 'sheerun/vim-polyglot'
-"Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 Plug 'mxw/vim-jsx'
 "Snippet engine.
 Plug 'SirVer/ultisnips'
