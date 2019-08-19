@@ -1,7 +1,7 @@
 "Initial setup of .vimrc
 set nocompatible              " be iMproved, required
 "Windows WSL config
-set term=screen-256color
+"set term=screen-256color
 set t_ut=
 " WSL yank support
 let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
@@ -38,9 +38,10 @@ let g:ale_javascript_eslint_use_global = 1
 call plug#begin('~/.vim/plugged')
 Plug 'VundleVim/Vundle.vim'
 "Code Completion plugin
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Syntax Checking plugin
-"Plug 'scrooloose/syntastic'
 Plug 'w0rp/ale'
 "Emmet
 Plug 'mattn/emmet-vim'
@@ -60,10 +61,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'roxma/vim-paste-easy'
 Plug 'ryanoasis/vim-devicons'
-Plug 'ervandew/supertab'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rails'
 Plug 'tpope/vim-haml'
 " For FZP
 Plug 'junegunn/fzf'
@@ -73,10 +71,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-css-color'
 Plug 'mxw/vim-jsx'
 "Snippet engine.
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 "Snippets are separated from the engine.
-Plug 'honza/vim-snippets'
-Plug 'epilande/vim-react-snippets'
+"Plug 'honza/vim-snippets'
+"Plug 'epilande/vim-react-snippets'
 "Solarized Theme
 "Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
@@ -130,26 +128,6 @@ set guifont=Meslo\ LG\ M\ Regular\ Nerd\ Font\ Complete\ Mono:h14
 " set mouse=nicr
 set mouse=a
 
-" Syntastic Linting Preferences (currently prefering ALE)
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-""let g:syntastic_always_populate_loc_list = 1
-""let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_javascript_eslint_exe = 'npm run eslint --'
-
-"let g:syntastic_error_symbol = '❌'
-"let g:syntastic_style_error_symbol = '⁉️'
-"let g:syntastic_warning_symbol = '⚠️'
-"let g:syntastic_style_warning_symbol = '💩'
-"highlight link SyntasticErrorSign SignColumn
-"highlight link SyntasticWarningSign SignColumn
-"highlight link SyntasticStyleErrorSign SignColumn
-"highlight link SyntasticStyleWarningSign SignColumn
-
 " Close YCM Preview Pane when switching to Normal Mode
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
@@ -163,12 +141,22 @@ endif
 set display+=lastline
 let g:jsx_ext_required = 0
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<s-tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" ====================================
+" Coc.nvm config
+" if hidden is not set, TextEdit might fail.
+set hidden
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" ====================================
