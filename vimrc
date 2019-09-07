@@ -84,6 +84,7 @@ call plug#end()
 syntax enable
 set cursorline
 set background=dark
+set termguicolors
 "colorscheme solarized
 colorscheme gruvbox
 let g:airline_powerline_fonts = 1
@@ -131,12 +132,12 @@ set mouse=a
 " Close YCM Preview Pane when switching to Normal Mode
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-if !&scrolloff
-  set scrolloff=5
-endif
-if !&sidescrolloff
-  set sidescrolloff=5
-endif
+"if !&scrolloff
+  "set scrolloff=5
+"endif
+"if !&sidescrolloff
+  "set sidescrolloff=5
+"endif
 
 set display+=lastline
 let g:jsx_ext_required = 0
