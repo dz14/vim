@@ -1,17 +1,21 @@
 "Initial setup of .vimrc
 set nocompatible              " be iMproved, required
+"""""""""""""""""""""""""""""""""""""""""
 "Windows WSL config
+"""""""""""""""""""""""""""""""""""""""""
 "set term=screen-256color
-set t_ut=
 " WSL yank support
-let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
-if executable(s:clip)
-    augroup WSLYank
-      autocmd!
-      autocmd TextYankPost * call system(s:clip, join(v:event.regcontents, "\<CR>"))
-    augroup END
-  end
+"let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
+"if executable(s:clip)
+    "augroup WSLYank
+      "autocmd!
+      "autocmd TextYankPost * call system(s:clip, join(v:event.regcontents, "\<CR>"))
+    "augroup END
+"end
+"""""""""""""""""""""""""""""""""""""""""
 " END OF WSL config
+"""""""""""""""""""""""""""""""""""""""""
+set clipboard=unnamedplus
 filetype off                  " required
 " Set Directory for storing swapfiles
 set directory^=$HOME/.vim/tmp//
