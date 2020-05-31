@@ -15,7 +15,7 @@ set nocompatible              " be iMproved, required
 """""""""""""""""""""""""""""""""""""""""
 " END OF WSL config
 """""""""""""""""""""""""""""""""""""""""
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 filetype off                  " required
 " Set Directory for storing swapfiles
 set directory^=$HOME/.vim/tmp//
