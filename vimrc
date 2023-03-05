@@ -24,8 +24,8 @@ let mapleader = ','
 "Configure Silver Surfer
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nmap <leader>nt :NERDTree<cr>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gd :Gdiff<cr>
+nmap <leader>gs :Git<cr>
+nmap <leader>gd :Git diff<cr>
 "Hit keys j-k to go back to Normal mode
 inoremap jk <esc>
 
