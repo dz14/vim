@@ -1,20 +1,5 @@
 "Initial setup of .vimrc
 set nocompatible              " be iMproved, required
-"""""""""""""""""""""""""""""""""""""""""
-"Windows WSL config
-"""""""""""""""""""""""""""""""""""""""""
-"set term=screen-256color
-" WSL yank support
-"let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
-"if executable(s:clip)
-    "augroup WSLYank
-      "autocmd!
-      "autocmd TextYankPost * call system(s:clip, join(v:event.regcontents, "\<CR>"))
-    "augroup END
-"end
-"""""""""""""""""""""""""""""""""""""""""
-" END OF WSL config
-"""""""""""""""""""""""""""""""""""""""""
 " set clipboard=unnamedplus
 filetype off                  " required
 " Set Directory for storing swapfiles
@@ -24,8 +9,8 @@ let mapleader = ','
 "Configure Silver Surfer
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nmap <leader>nt :NERDTree<cr>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gd :Gdiff<cr>
+nmap <leader>gs :Git<cr>
+nmap <leader>gd :Git diff<cr>
 "Hit keys j-k to go back to Normal mode
 inoremap jk <esc>
 
@@ -37,18 +22,21 @@ nmap <silent> <right> :wincmd l<cr>
 nmap <silent> <c-t> :Files<cr>
 
 nmap s <Plug>(easymotion-bd-w)
-let g:ale_javascript_eslint_use_global = 1
+"let g:ale_javascript_eslint_use_global = 1
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
 
 call plug#begin('~/.vim/plugged')
-Plug 'VundleVim/Vundle.vim'
 "Code Completion plugin
 "Plug 'Valloric/YouCompleteMe'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'tag': 'v0.0.81'}
 "Syntax Checking plugin
 Plug 'w0rp/ale'
 "Emmet
-Plug 'mattn/emmet-vim'
+"Plug 'mattn/emmet-vim'
 "Indent lines
 Plug 'Yggdroot/indentLine'
 "Commenter
@@ -62,11 +50,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 Plug 'pangloss/vim-javascript'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'roxma/vim-paste-easy'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-haml'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 " For FZP
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -110,7 +100,6 @@ set shiftwidth=2
 " On pressing tab, insert 4 spaces
 set expandtab
 set softtabstop=2
-
 "Line wrapping
 set wrap
 
@@ -127,14 +116,14 @@ set showcmd                     " display incomplete commands
 let g:javascript_plugin_jsdoc = 1
 
 "Macvim Font Configuration
-set guifont=Meslo\ LG\ M\ Regular\ Nerd\ Font\ Complete\ Mono:h14
+"set guifont=Meslo\ LG\ M\ Regular\ Nerd\ Font\ Complete\ Mono:h14
 "set guifont=MesloLGLDZ\ NF:h14
 " Mouse settings
 " set mouse=nicr
 set mouse=a
 
 " Close YCM Preview Pane when switching to Normal Mode
-let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
 
 "if !&scrolloff
   "set scrolloff=5
@@ -149,19 +138,16 @@ let g:jsx_ext_required = 0
 
 " ====================================
 " Coc.nvm config
-" if hidden is not set, TextEdit might fail.
-set hidden
 " Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
-"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-" ====================================
