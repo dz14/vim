@@ -2,6 +2,29 @@
 set nocompatible              " be iMproved, required
 " set clipboard=unnamedplus
 filetype off                  " required
+"""""""""""""""""""""""""""""""""""""""""
+"Windows WSL config
+"""""""""""""""""""""""""""""""""""""""""
+"set term=screen-256color
+" WSL yank support
+"let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
+"if executable(s:clip)
+    "augroup WSLYank
+      "autocmd!
+      "autocmd TextYankPost * call system(s:clip, join(v:event.regcontents, "\<CR>"))
+    "augroup END
+"end
+"https://waylonwalker.com/vim-wsl-clipboard/
+if system('uname -r') =~ "microsoft"
+  augroup Yank
+  autocmd!
+  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+  augroup END
+endif
+"""""""""""""""""""""""""""""""""""""""""
+" END OF WSL config
+"""""""""""""""""""""""""""""""""""""""""
+
 " Set Directory for storing swapfiles
 set directory^=$HOME/.vim/tmp//
 " Key Mappings
